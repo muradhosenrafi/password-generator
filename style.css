@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   font-family: "Inter", sans-serif;
+}
+
+body{
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:rgba(179, 20, 20, 0.199);
+    color: rgba(226, 9, 9, 0.76);
+}
+.container{
+    border: 0.5px solid transparent;
+    border-radius:10px ;
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    box-shadow:8px 8px 8px 8px rgba(0, 0, 0, 0.1);
+}
+.container h1{
+    font-size: 24px;
+    margin-block: 8px;
+}
+.passbox{
+    background-color: #fff;
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 300px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-block: 8px;
+}
+.row{
+    display: flex;
+    margin-block: 8px;
+}
+.row p,.row label{
+    flex-basis: 100%;
+    font-size:18px ;
+}
+.row input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+}
+.lowercase{
+    color: rgb(43, 87, 43);
+}
+.getbtn{
+    border: none;
+    outline: none;
+    background: #380909d8;
+    padding: 12px 24px;
+    color: aliceblue;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: 700;
+    margin-block: 8px;
+    border-radius: 4px;
+    transition: .3s ease-in-out;
+}
+.getbtn:hover{
+    background: #962323d8;
+}
