@@ -6,6 +6,8 @@ const upercase = document.querySelector("#upercase");
 const lowercase = document.querySelector("#lowercase");
 const passbox = document.querySelector("#passbox");
 const getbtn = document.querySelector(".getbtn");
+const copybtn = document.querySelector("#copybtn");
+const copystatus = document.querySelector("#copystatus");
 
 slidevalue.textContent = inputslider.value;
 
@@ -17,6 +19,8 @@ getbtn.addEventListener("click", () => {
     const password = generatepassword();
     if (password) {
         passbox.value = password;
+        copybtn.disabled = false;
+        copystatus.textContent = "";
     }
 });
 
@@ -78,3 +82,28 @@ function generatepassword() {
 
     return passwordCharacters.join("");
 }
+
+
+copybtn.addEventListener("click", async () => {
+    if (!passbox.value) return;
+
+    try {
+        if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(passbox.value);
+        } else {
+            // Fallback for browsers where the Clipboard API is unavailable.
+            passbox.focus();
+            passbox.select();
+            const copied = document.execCommand("copy");
+            passbox.setSelectionRange(0, 0);
+
+            if (!copied) throw new Error("Copy command was not successful.");
+        }
+
+        copystatus.textContent = "Password copied to clipboard.";
+    } catch (error) {
+        copystatus.textContent = "Unable to copy automatically. Select the password and copy it manually.";
+        passbox.focus();
+        passbox.select();
+    }
+});
