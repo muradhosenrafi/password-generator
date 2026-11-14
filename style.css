@@ -97,3 +97,52 @@ body{
         font-size: 17px;
     }
 }
+
+
+.inputbox {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+}
+
+.copybtn {
+    flex: 0 0 auto;
+    border: none;
+    border-radius: 8px;
+    padding: 0 14px;
+    background: #380909d8;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.copybtn:hover:not(:disabled) {
+    background: #962323d8;
+}
+
+.copybtn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.copy-status {
+    min-height: 20px;
+    margin-top: 4px;
+    font-size: 13px;
+    color: rgb(43, 87, 43);
+}
+
+@media (max-width: 420px) {
+    .inputbox {
+        gap: 6px;
+    }
+
+    .passbox {
+        font-size: 16px;
+    }
+
+    .copybtn {
+        padding: 0 10px;
+    }
+}
